@@ -7,6 +7,7 @@
 
 Rails.application.configure do
   # Rails 5
+  config.api_only = true
 
   config.middleware.insert_before 0, Rack::Cors do
     allow do

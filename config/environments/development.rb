@@ -4,7 +4,7 @@ Rails.application.configure do
   config.middleware.insert_before 0, Rack::Cors do
     allow do
       origins 'http://localhost:4200', '127.0.0.1:4200'
-      resource '*', headers: :any, methods: %i[get post options patch head put]
+      resource '*', headers: :any, methods: %i[get post options patch head put delete]
     end
   end
   # Settings specified here will take precedence over those in config/application.rb.
@@ -14,11 +14,16 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-  # Do not eager load code on boot.
+  # Do eager load code on boot.
   config.eager_load = true
 
   # Show full error reports.
   config.consider_all_requests_local = false
+
+  # Allow POST requests from other hosts
+  # config.action_controller.forgery_protection_origin_check = false
+
+  config.debug_exception_response_format = :api
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
