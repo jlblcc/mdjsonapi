@@ -1,24 +1,28 @@
-# README
+# mdJSON API: A demo of a mdEditor compatible JSONAPI server
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a very basic implementation of an Rails API that follows the JSON API spec and is usable as a mdEditor datastore. mdJSON API is based on <https://github.com/cerebris/peeps> and uses [JSONAPI-Resources](https://jsonapi-resources.com/) and Postgresql.
 
-Things you may want to cover:
+Currently, support is only setup for storing Contacts. However, adding basic support for Metadata and Dictionaries would be trivial. See <https://api.emberjs.com/ember-data/3.12/classes/JSONAPIAdapter>.
 
-* Ruby version
+## Running this app
 
-* System dependencies
+This app requires that postgresql be installed locally. General instructions are available
+[here](https://wiki.postgresql.org/wiki/Detailed_installation_guides) for many operating systems.
 
-* Configuration
+After cloning this repo, run the following:
 
-* Database creation
+```bash
+bundle
+```
 
-* Database initialization
+Ensure that your `config/database.yml` is configured properly, and then run:
 
-* How to run the test suite
+```bash
+rake db:create db:migrate
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Start your server:
 
-* Deployment instructions
-
-* ...
+```bash
+rails server
+```
