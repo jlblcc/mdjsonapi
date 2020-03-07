@@ -1,5 +1,12 @@
 class ContactResource < JSONAPI::Resource
-  attribute :id
-  attributes :json, :date_updated
-  key_type :uuid
+  attribute :json, format: :json_string
+  attribute :date_updated
+
+  def self.creatable_fields(context)
+    super + [:id]
+  end
+
+  def self.updatable_fields(context)
+    super - [:id]
+  end
 end

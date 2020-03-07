@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_03_05_210235) do
   enable_extension "uuid-ossp"
 
   create_table "contacts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.jsonb "json"
+    t.jsonb "json", default: {}, null: false
     t.datetime "date_updated"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
